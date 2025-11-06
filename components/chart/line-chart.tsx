@@ -3,7 +3,7 @@ import { Group } from "@visx/group";
 import { Dataset, Margin } from "@/components/chart/types";
 import { scaleLinear } from "@visx/scale";
 import { AxisBottom, AxisLeft } from "@visx/axis";
-import { extent, range } from "@visx/vendor/d3-array";
+import { extent } from "@visx/vendor/d3-array";
 import { LinePath } from "@visx/shape";
 
 const LineChart = (props: {
