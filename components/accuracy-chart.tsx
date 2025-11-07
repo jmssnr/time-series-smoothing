@@ -12,7 +12,7 @@ const AccuracyChart = (props: {
   return (
     <Chart {...otherProps} yDomain={[0, 10]}>
       <YAxis />
-      <BarSeries className="fill-red-500" data={data} id="accuracy" />
+      <BarSeries className="fill-chart-1" data={data} id="accuracy" />
     </Chart>
   );
 };

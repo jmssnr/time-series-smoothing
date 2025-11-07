@@ -22,9 +22,9 @@ const BarSeries = (props: { id: string; data: Datum[]; className: string }) => {
         width={barWidth}
         height={innerHeight - yScale(datum)}
         key={`rect-${indx}`}
-        x={xScale(indx) + barWidth/2}
+        x={xScale(indx) + barWidth / 2}
         y={yScale(datum)}
-        className={cn("stroke-white stroke-2", className)}
+        className={cn("stroke-background stroke-2", className)}
       />
     );
   });
