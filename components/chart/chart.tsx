@@ -6,17 +6,18 @@ import { Group } from "@visx/group";
 import { extent } from "@visx/vendor/d3-array";
 import { useCreateChartRegistry } from "@/components/chart/hooks/useCreateChartRegistry";
 
-const DEFAULT_MARGIN = { top: 60, bottom: 10, left: 60, right: 10 };
+const DEFAULT_MARGIN = { top: 25, bottom: 5, left: 30, right: 5 };
 
 const Chart = (
   props: PropsWithChildren<{
     width: number;
     height: number;
     margin?: typeof DEFAULT_MARGIN;
+    yDomain?: [number, number];
   }>
 ) => {
   const { registry, register, unregister } = useCreateChartRegistry();
-  const { width, height, margin = DEFAULT_MARGIN, children } = props;
+  const { width, height, margin = DEFAULT_MARGIN, children, yDomain } = props;
 
   const innerWidth = width - margin.left - margin.right;
   const innerHeight = height - margin.top - margin.bottom;
@@ -30,7 +31,7 @@ const Chart = (
 
   const yScale = scaleLinear({
     range: [innerHeight, 0],
-    domain: extent(data) as [number, number],
+    domain: yDomain ?? (extent(data) as [number, number]),
   });
   const value = useMemo(
     () => ({ registry, xScale, yScale, register, unregister }),
