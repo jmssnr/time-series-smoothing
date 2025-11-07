@@ -16,8 +16,8 @@ export default function Home() {
         <Slider
           value={[value]}
           onValueChange={(v) => setValue(v[0])}
-          min={.1}
-          max={10}
+          min={0.1}
+          max={5000}
           step={1}
         />
         <LineChart

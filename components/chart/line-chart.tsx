@@ -60,7 +60,7 @@ const LineChart = (props: {
     .map((d, i) => (d - smoothedData[i - 1]) ** 2);
 
   const yScaleTwo = scaleLinear({
-    range: [0.25 * innerHeight, 0],
+    range: [innerHeight, 0.9 * innerHeight],
     domain: [0, 10],
   });
 
@@ -69,7 +69,7 @@ const LineChart = (props: {
       data={squaredDifferences}
       x={(_, i) => xScale(i)}
       y={(d) => yScaleTwo(d)}
-      className="stroke-red-500 stroke-2 opacity-20"
+      className="stroke-red-500 stroke-2"
     />
   );
 
@@ -78,7 +78,7 @@ const LineChart = (props: {
       data={squaredRange.slice(1)}
       x={(_, i) => xScale(i + 1)}
       y={(d) => yScaleTwo(d)}
-      className="stroke-yellow-500 stroke-2 opacity-20"
+      className="stroke-yellow-500 stroke-2"
     />
   );
 
